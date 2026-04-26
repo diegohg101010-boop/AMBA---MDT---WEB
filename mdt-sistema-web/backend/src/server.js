@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -151,15 +152,29 @@ app.get('/health', async (req, res) => {
 
 // Servir archivos estáticos del frontend
 const frontendPath = path.join(__dirname, '../../frontend/dist');
-app.use(express.static(frontendPath));
-
-// Manejo de rutas SPA - devolver index.html para rutas no-API
-app.get('*', (req, res, next) => {
-    if (req.path.startsWith('/api/')) {
-        return next();
-    }
-    res.sendFile(path.join(frontendPath, 'index.html'));
-});
+if (fs.existsSync(frontendPath)) {
+    app.use(express.static(frontendPath));
+    
+    // Manejo de rutas SPA - devolver index.html para rutas no-API
+    app.get('*', (req, res, next) => {
+        if (req.path.startsWith('/api/')) {
+            return next();
+        }
+        res.sendFile(path.join(frontendPath, 'index.html'));
+    });
+} else {
+    console.warn(`⚠ Frontend no encontrado en ${frontendPath}`);
+    console.warn('  El backend estará disponible en /api/*, pero el frontend no se servirá');
+    
+    // Ruta por defecto para verificar que el API está vivo
+    app.get('/', (req, res) => {
+        res.json({ 
+            success: true, 
+            message: 'MDT Backend API operativo',
+            docs: 'https://api.example.com/api/docs'
+        });
+    });
+}
 
 // Manejo de errores 404 para rutas API
 app.use((req, res) => {
