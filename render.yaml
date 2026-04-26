@@ -6,7 +6,7 @@ services:
     region: oregon
     plan: free
     buildCommand: bash build.sh
-    startCommand: bash -c "cd mdt-sistema-web/backend && npm start"
+    startCommand: bash start.sh
     envVars:
       - key: PORT
         value: 10000

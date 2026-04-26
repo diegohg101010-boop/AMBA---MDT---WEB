@@ -22,3 +22,11 @@ cd ../..
 
 echo "✅ Build completado correctamente"
 echo "🚀 Listo para iniciar el servidor"
+
+# Crear script de inicio
+cat > start.sh << 'EOF'
+#!/bin/bash
+cd mdt-sistema-web/backend
+npm start
+EOF
+chmod +x start.sh
