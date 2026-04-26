@@ -5,7 +5,7 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: cd frontend && npm install && npm run build && cd ../backend && npm install
+    buildCommand: bash build.sh
     startCommand: cd backend && npm start
     envVars:
       - key: PORT
