@@ -1,0 +1,21 @@
+/* Animación global para todos los emojis */
+.action-icon,
+.info-card h3::first-letter {
+  display: inline-block;
+  animation: emojiFloat 3s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(5deg);
+  }
+}

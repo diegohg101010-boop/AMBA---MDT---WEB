@@ -1,0 +1,184 @@
+/* Sistema de Iconos - MDT Policial Argentino */
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+}
+
+/* Tamaños de iconos */
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+.icon-xl {
+  width: 48px;
+  height: 48px;
+}
+
+/* Colores temáticos argentinos */
+.icon-primary {
+  color: var(--celeste);
+}
+
+.icon-secondary {
+  color: var(--gold);
+}
+
+.icon-success {
+  color: var(--success);
+}
+
+.icon-warning {
+  color: var(--warning);
+}
+
+.icon-danger {
+  color: var(--danger);
+}
+
+/* Iconos con efecto dorado */
+.icon-gold {
+  color: var(--gold);
+  filter: drop-shadow(0 0 4px var(--gold));
+}
+
+.icon-gold:hover {
+  color: var(--gold-dark);
+  filter: drop-shadow(0 0 8px var(--gold));
+}
+
+.icon-danger {
+  color: #e74c3c;
+}
+
+.icon-info {
+  color: #3498db;
+}
+
+.icon-muted {
+  color: #95a5a6;
+}
+
+.icon-dark {
+  color: #2c3e50;
+}
+
+.icon-light {
+  color: #ecf0f1;
+}
+
+/* Efectos hover */
+.icon-wrapper:hover .icon {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+/* Animaciones */
+@keyframes pulse-icon {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.icon-pulse {
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes spin-icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-spin {
+  animation: spin-icon 1s linear infinite;
+}
+
+/* Iconos en badges */
+.badge .icon-wrapper {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+/* Iconos en botones */
+.btn .icon-wrapper {
+  margin-right: 6px;
+}
+
+.btn-icon .icon-wrapper {
+  margin: 0;
+}
+
+/* Iconos en headers */
+h1 .icon-wrapper,
+h2 .icon-wrapper,
+h3 .icon-wrapper {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Iconos en tablas */
+.data-table .icon-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+/* Iconos en cards */
+.card-header .icon-wrapper {
+  margin-right: 8px;
+}
+
+/* Estados especiales */
+.icon-active {
+  color: #2ecc71;
+  filter: drop-shadow(0 0 4px rgba(46, 204, 113, 0.5));
+}
+
+.icon-inactive {
+  color: #95a5a6;
+  opacity: 0.5;
+}
+
+.icon-alert {
+  color: #e74c3c;
+  animation: pulse-icon 1.5s ease-in-out infinite;
+}
+
+.icon-wanted {
+  color: #e74c3c;
+  filter: drop-shadow(0 0 6px rgba(231, 76, 60, 0.6));
+}
+
+/* Iconos en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .icon {
+    filter: brightness(1.2);
+  }
+}

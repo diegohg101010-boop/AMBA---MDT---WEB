@@ -1,0 +1,972 @@
+/* ============================================
+   FONDOS ANIMADOS ARGENTINOS - MDT POLICIAL
+   Tema nacional con elementos patrios
+   ============================================ */
+
+/* ============================================
+   FONDO PRINCIPAL CON PATRÓN ARGENTINO
+   ============================================ */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(45deg, rgba(116, 172, 223, 0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(116, 172, 223, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(116, 172, 223, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(116, 172, 223, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  animation: patternMove 30s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
+
+/* ============================================
+   CONTORNO DEL MAPA DE ARGENTINA
+   ============================================ */
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Cpath d='M20 80 Q40 20 80 30 Q120 10 140 40 Q160 30 170 50 Q180 70 170 90 Q160 110 140 100 Q120 120 80 110 Q40 130 20 80 Z' fill='none' stroke='%23F6B000' stroke-width='1' opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: mapPulse 20s ease-in-out infinite;
+}
+
+@keyframes mapPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* ============================================
+   PARTÍCULAS CON COLORES ARGENTINOS
+   ============================================ */
+
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--celeste);
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out;
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 14s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 13s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 15s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 19s; }
+.particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 14s; }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+    transform: translateY(90vh) translateX(20px) scale(1);
+  }
+  90% {
+    opacity: 0.3;
+    transform: translateY(10vh) translateX(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0);
+  }
+}
+
+/* ============================================
+   LÍNEAS HORIZONTALES ESCANEADAS
+   ============================================ */
+
+.scan-line {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.6) 50%,
+    transparent
+  );
+  animation: scan 8s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   VIGNETTE (OSCURECIMIENTO EN BORDES)
+   ============================================ */
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   GLOW CORNERS (ESQUINAS ILUMINADAS)
+   ============================================ */
+
+.glow-corner {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  filter: blur(60px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.glow-corner.top-left {
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent);
+}
+
+.glow-corner.top-right {
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.3), transparent);
+  animation-delay: 2s;
+}
+
+.glow-corner.bottom-left {
+  bottom: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.3), transparent);
+  animation-delay: 1s;
+}
+
+.glow-corner.bottom-right {
+  bottom: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent);
+  animation-delay: 3s;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+}
+
+/* ============================================
+   LÍNEAS VERTICALES LATERALES
+   ============================================ */
+
+.side-lines {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(59, 130, 246, 0.3) 50%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: lineGlow 3s ease-in-out infinite;
+}
+
+.side-lines.left {
+  left: 280px;
+}
+
+.side-lines.right {
+  right: 0;
+  animation-delay: 1.5s;
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+  }
+}
+
+/* ============================================
+   EFECTO DE ESCANEO RADAR
+   ============================================ */
+
+.radar-sweep {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin: -200px 0 0 -200px;
+  border-radius: 50%;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.radar-sweep::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(59, 130, 246, 0.6),
+    transparent
+  );
+  transform-origin: left center;
+  animation: radarSweep 4s linear infinite;
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   CARDS CON BORDE ANIMADO
+   ============================================ */
+
+.card-with-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-with-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.3),
+    transparent
+  );
+  background-size: 200% 200%;
+  animation: borderFlow 3s linear infinite;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.card-with-border:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ============================================
+   EFECTO HOLOGRÁFICO EN HEADER
+   ============================================ */
+
+.holographic-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(59, 130, 246, 0.1) 50%,
+    transparent 70%
+  );
+  animation: holographicShine 3s linear infinite;
+}
+
+@keyframes holographicShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* ============================================
+   PULSO DE DATOS (DATA STREAM)
+   ============================================ */
+
+.data-stream {
+  position: fixed;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(59, 130, 246, 0.5),
+    transparent
+  );
+  background-size: 100% 20%;
+  background-repeat: no-repeat;
+  animation: dataFlow 2s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.data-stream:nth-child(1) { left: 15%; animation-delay: 0s; }
+.data-stream:nth-child(2) { left: 35%; animation-delay: 0.5s; }
+.data-stream:nth-child(3) { left: 55%; animation-delay: 1s; }
+.data-stream:nth-child(4) { left: 75%; animation-delay: 1.5s; }
+.data-stream:nth-child(5) { left: 95%; animation-delay: 0.7s; }
+
+@keyframes dataFlow {
+  0% {
+    background-position: 0 -20%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 0 120%;
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   REDUCCIÓN DE MOVIMIENTO (ACCESIBILIDAD)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .particle,
+  .scan-line,
+  .glow-corner,
+  .side-lines,
+  .radar-sweep,
+  .radar-sweep::before,
+  .card-with-border::before,
+  .holographic-effect::after,
+  .data-stream {
+    animation: none !important;
+  }
+  
+  .glow-corner {
+    opacity: 0.1;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - DESHABILITAR ANIMACIONES EN MÓVIL
+   ============================================ */
+
+@media (max-width: 1024px) {
+  /* Deshabilitar animaciones pesadas en móvil */
+  body::before,
+  body::after,
+  .particle,
+  .scan-line,
+  .radar-sweep,
+  .radar-sweep::before,
+  .hexagon,
+  .pulse-circles,
+  .pulse-circle,
+  .binary-rain,
+  .em-wave,
+  .connection-line,
+  .glitch-overlay,
+  .data-point,
+  .data-point::after,
+  .grid-3d,
+  .data-stream {
+    display: none !important;
+  }
+  
+  .side-lines.left {
+    display: none;
+  }
+  
+  /* Reducir glow corners */
+  .glow-corner {
+    opacity: 0.05;
+    filter: blur(30px);
+    animation: none;
+  }
+  
+  /* Mantener solo estrellas simples */
+  .star {
+    animation-duration: 5s;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Deshabilitar todo en móviles pequeños */
+  .glow-corner,
+  .star,
+  .side-lines {
+    display: none !important;
+  }
+  
+  .vignette {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   HEXÁGONOS FLOTANTES
+   ============================================ */
+
+.hexagon-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hexagon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.1;
+  animation: hexFloat 20s infinite ease-in-out;
+}
+
+.hexagon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; animation-duration: 18s; }
+.hexagon:nth-child(2) { top: 20%; left: 80%; animation-delay: 2s; animation-duration: 22s; }
+.hexagon:nth-child(3) { top: 60%; left: 15%; animation-delay: 4s; animation-duration: 20s; }
+.hexagon:nth-child(4) { top: 70%; left: 85%; animation-delay: 1s; animation-duration: 19s; }
+.hexagon:nth-child(5) { top: 40%; left: 50%; animation-delay: 3s; animation-duration: 21s; }
+.hexagon:nth-child(6) { top: 80%; left: 40%; animation-delay: 5s; animation-duration: 17s; }
+
+@keyframes hexFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.1;
+  }
+  25% {
+    transform: translateY(-30px) rotate(90deg) scale(1.2);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-60px) rotate(180deg) scale(1);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translateY(-30px) rotate(270deg) scale(1.1);
+    opacity: 0.2;
+  }
+}
+
+/* ============================================
+   CÍRCULOS CONCÉNTRICOS PULSANTES
+   ============================================ */
+
+.pulse-circles {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  margin: -400px 0 0 -400px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pulse-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: circlePulse 6s ease-in-out infinite;
+}
+
+.pulse-circle:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  animation-delay: 0s;
+}
+
+.pulse-circle:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  animation-delay: 1s;
+}
+
+.pulse-circle:nth-child(3) {
+  width: 600px;
+  height: 600px;
+  animation-delay: 2s;
+}
+
+.pulse-circle:nth-child(4) {
+  width: 800px;
+  height: 800px;
+  animation-delay: 3s;
+}
+
+@keyframes circlePulse {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* ============================================
+   CÓDIGO BINARIO CAYENDO (MATRIX STYLE)
+   ============================================ */
+
+.binary-rain {
+  position: fixed;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: rgba(59, 130, 246, 0.3);
+  line-height: 20px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  animation: binaryFall 10s linear infinite;
+}
+
+.binary-rain:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 8s; }
+.binary-rain:nth-child(2) { left: 15%; animation-delay: 2s; animation-duration: 12s; }
+.binary-rain:nth-child(3) { left: 25%; animation-delay: 4s; animation-duration: 10s; }
+.binary-rain:nth-child(4) { left: 35%; animation-delay: 1s; animation-duration: 11s; }
+.binary-rain:nth-child(5) { left: 45%; animation-delay: 3s; animation-duration: 9s; }
+.binary-rain:nth-child(6) { left: 55%; animation-delay: 5s; animation-duration: 13s; }
+.binary-rain:nth-child(7) { left: 65%; animation-delay: 2.5s; animation-duration: 10s; }
+.binary-rain:nth-child(8) { left: 75%; animation-delay: 4.5s; animation-duration: 11s; }
+.binary-rain:nth-child(9) { left: 85%; animation-delay: 1.5s; animation-duration: 9s; }
+.binary-rain:nth-child(10) { left: 95%; animation-delay: 3.5s; animation-duration: 12s; }
+
+@keyframes binaryFall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ONDAS ELECTROMAGNÉTICAS
+   ============================================ */
+
+.em-wave {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 1000px;
+  height: 1000px;
+  margin: -500px 0 0 -500px;
+  border: 2px solid rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: emWave 8s ease-out infinite;
+}
+
+.em-wave:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.em-wave:nth-child(3) {
+  animation-delay: 4s;
+}
+
+.em-wave:nth-child(4) {
+  animation-delay: 6s;
+}
+
+@keyframes emWave {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ESTRELLAS PARPADEANTES
+   ============================================ */
+
+.star {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  animation: starTwinkle 3s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 1);
+}
+
+.star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 60%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 30%; left: 80%; animation-delay: 1s; }
+.star:nth-child(4) { top: 40%; left: 10%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 50%; left: 90%; animation-delay: 2s; }
+.star:nth-child(6) { top: 60%; left: 30%; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 70%; left: 70%; animation-delay: 0.7s; }
+.star:nth-child(8) { top: 80%; left: 50%; animation-delay: 1.2s; }
+.star:nth-child(9) { top: 15%; left: 40%; animation-delay: 1.8s; }
+.star:nth-child(10) { top: 85%; left: 15%; animation-delay: 2.3s; }
+.star:nth-child(11) { top: 25%; left: 85%; animation-delay: 0.3s; }
+.star:nth-child(12) { top: 45%; left: 25%; animation-delay: 1.3s; }
+.star:nth-child(13) { top: 65%; left: 65%; animation-delay: 1.9s; }
+.star:nth-child(14) { top: 35%; left: 45%; animation-delay: 0.9s; }
+.star:nth-child(15) { top: 75%; left: 95%; animation-delay: 2.7s; }
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ============================================
+   LÍNEAS DE CONEXIÓN (NETWORK STYLE)
+   ============================================ */
+
+.connection-line {
+  position: fixed;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.3) 50%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: lineExpand 4s ease-in-out infinite;
+}
+
+.connection-line.horizontal {
+  width: 0;
+  left: 0;
+}
+
+.connection-line.horizontal:nth-child(1) { top: 20%; animation-delay: 0s; }
+.connection-line.horizontal:nth-child(2) { top: 40%; animation-delay: 1s; }
+.connection-line.horizontal:nth-child(3) { top: 60%; animation-delay: 2s; }
+.connection-line.horizontal:nth-child(4) { top: 80%; animation-delay: 3s; }
+
+@keyframes lineExpand {
+  0%, 100% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 100%;
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   EFECTO DE INTERFERENCIA (GLITCH)
+   ============================================ */
+
+.glitch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation: glitchFlash 10s infinite;
+}
+
+.glitch-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(59, 130, 246, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes glitchFlash {
+  0%, 98%, 100% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.3;
+  }
+}
+
+/* ============================================
+   PUNTOS DE DATOS (DATA POINTS)
+   ============================================ */
+
+.data-point {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  animation: dataPointPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+.data-point::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  animation: dataPointRing 2s ease-out infinite;
+}
+
+.data-point:nth-child(1) { top: 15%; left: 25%; animation-delay: 0s; }
+.data-point:nth-child(2) { top: 35%; left: 75%; animation-delay: 0.5s; }
+.data-point:nth-child(3) { top: 55%; left: 20%; animation-delay: 1s; }
+.data-point:nth-child(4) { top: 75%; left: 80%; animation-delay: 1.5s; }
+.data-point:nth-child(5) { top: 25%; left: 50%; animation-delay: 0.7s; }
+.data-point:nth-child(6) { top: 65%; left: 45%; animation-delay: 1.2s; }
+
+@keyframes dataPointPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes dataPointRing {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   GRID 3D PERSPECTIVE
+   ============================================ */
+
+.grid-3d {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: 
+    linear-gradient(0deg, transparent 0%, transparent calc(100% - 1px), rgba(59, 130, 246, 0.1) calc(100% - 1px)),
+    linear-gradient(90deg, transparent 0%, transparent calc(100% - 1px), rgba(59, 130, 246, 0.1) calc(100% - 1px));
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: bottom;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+  animation: grid3dMove 10s linear infinite;
+}
+
+@keyframes grid3dMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* ============================================
+   REDUCCIÓN DE MOVIMIENTO (ACCESIBILIDAD)
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hexagon,
+  .pulse-circle,
+  .binary-rain,
+  .em-wave,
+  .star,
+  .connection-line,
+  .glitch-overlay,
+  .data-point,
+  .data-point::after,
+  .grid-3d {
+    animation: none !important;
+  }
+  
+  .hexagon,
+  .pulse-circle,
+  .binary-rain,
+  .em-wave,
+  .connection-line,
+  .glitch-overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,33 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.dashboard-main {
+  flex: 1;
+  margin-left: 280px;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10;
+}
+
+.dashboard-main.sidebar-closed {
+  margin-left: 0;
+}
+
+.dashboard-content {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main {
+    margin-left: 0;
+  }
+}

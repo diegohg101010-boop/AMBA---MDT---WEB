@@ -1,0 +1,58 @@
+/* AgenciaRangoSelector.css */
+.agencia-rango-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.selector-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.selector-field label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.selector-field select {
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.selector-field select:hover:not(:disabled) {
+    border-color: #007bff;
+}
+
+.selector-field select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.selector-field select:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.selector-loading {
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .agencia-rango-selector {
+        grid-template-columns: 1fr;
+    }
+}

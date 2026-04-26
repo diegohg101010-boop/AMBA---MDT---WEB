@@ -1,0 +1,220 @@
+.search-bar {
+  margin-bottom: 2rem;
+}
+
+.search-bar .input {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Vista completa del código penal */
+.codigo-penal-completo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.capitulo-section {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(30, 58, 138, 0.05) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.capitulo-header-full {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(30, 58, 138, 0.2) 100%);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.capitulo-numero-badge {
+  background: rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.capitulo-header-full h2 {
+  color: #e2e8f0;
+  font-size: 1.3rem;
+  margin: 0;
+  flex: 1;
+}
+
+.capitulo-header-full .articulos-count {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* Lista de artículos */
+.articulos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.articulo-item {
+  background: rgba(15, 23, 42, 0.4);
+  border-bottom: 1px solid rgba(71, 85, 105, 0.2);
+  padding: 1.5rem 2rem;
+  transition: all 0.2s ease;
+}
+
+.articulo-item:last-child {
+  border-bottom: none;
+}
+
+.articulo-item:hover {
+  background: rgba(15, 23, 42, 0.6);
+  border-left: 3px solid #3b82f6;
+}
+
+.articulo-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.articulo-codigo-badge {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+
+.articulo-infraccion {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.articulo-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-left: 96px;
+}
+
+.articulo-info-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.info-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.multa-badge {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.multa-badge .badge-label {
+  color: #fca5a5;
+  font-weight: 500;
+}
+
+.multa-badge .badge-value {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.condena-badge {
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.condena-badge .badge-label {
+  color: #fcd34d;
+  font-weight: 500;
+}
+
+.condena-badge .badge-value {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.articulo-sancion {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 8px;
+  border-left: 3px solid rgba(59, 130, 246, 0.5);
+}
+
+.sancion-label {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.sancion-value {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .capitulo-header-full {
+    padding: 1rem 1.5rem;
+  }
+
+  .articulo-item {
+    padding: 1rem 1.5rem;
+  }
+
+  .articulo-item-body {
+    margin-left: 0;
+  }
+
+  .articulo-item-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .articulo-codigo-badge {
+    align-self: flex-start;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

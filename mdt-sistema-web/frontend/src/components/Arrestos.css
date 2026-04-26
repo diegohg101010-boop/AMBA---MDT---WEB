@@ -1,0 +1,131 @@
+/* Arrestos.css */
+
+.arresto-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.motivo-cell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.description-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.notes-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: var(--bg-darker);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* Artículos seleccionados */
+.articulos-seleccionados-container {
+  margin-top: 10px;
+}
+
+.articulos-seleccionados-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.articulos-seleccionados-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.articulo-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-darker);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--text-primary);
+  transition: all 200ms;
+}
+
+.articulo-tag:hover {
+  background: var(--bg-dark);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.articulo-tag-codigo {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.articulo-tag-remove {
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+  transition: all 200ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.articulo-tag-remove:hover {
+  background: rgba(220, 38, 38, 0.2);
+  transform: scale(1.1);
+}
+
+.articulo-tag-remove:active {
+  transform: scale(0.95);
+}
+
+/* Fix para el selector de artículos */
+.input select,
+select.input {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+}
+
+.input select option,
+select.input option {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+  padding: 8px;
+}
+
+.input select option:hover,
+select.input option:hover {
+  background: var(--bg-card);
+}
+
+/* Asegurar que todos los selects tengan el color correcto */
+select {
+  color: var(--text-primary) !important;
+  background: var(--bg-dark) !important;
+}
+
+select option {
+  color: var(--text-primary) !important;
+  background: var(--bg-dark) !important;
+}

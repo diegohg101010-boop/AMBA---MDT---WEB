@@ -1,0 +1,620 @@
+/* Estilos específicos para el módulo de Oficiales */
+
+.modal-oficial {
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header-oficial {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 32px 24px;
+  border-bottom: 2px solid var(--border);
+  background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  margin: -1px -1px 0 -1px;
+}
+
+.modal-header-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.modal-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.5;
+}
+
+.modal-header-oficial h2 {
+  margin: 0 0 4px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.modal-header-oficial p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.modal-header-oficial .modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header-oficial .modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.form-oficial {
+  padding: 32px;
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section:last-of-type {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-title svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+  stroke-width: 2.5;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group label svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+  stroke-width: 2.5;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.input-hint {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: -4px;
+}
+
+.modal-actions-oficial {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 24px;
+  border-top: 2px solid var(--border);
+}
+
+.btn-cancel,
+.btn-submit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-cancel {
+  background: var(--bg-dark);
+  color: var(--text-secondary);
+}
+
+.btn-cancel:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-cancel svg,
+.btn-submit svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-oficial {
+    max-width: 95%;
+    margin: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-header-oficial {
+    padding: 24px 20px 20px;
+  }
+
+  .form-oficial {
+    padding: 24px 20px;
+  }
+
+  .modal-actions-oficial {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancel,
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Animación de entrada */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-oficial {
+  animation: slideDown 0.3s ease-out;
+}
+
+/* ============================================
+   ESTILOS PARA SANCIONES
+   ============================================ */
+
+.sanciones-section {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.section-header-sanciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+}
+
+.section-title-sanciones {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-title-sanciones svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2.5;
+}
+
+.section-title-sanciones h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.btn-add-sancion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-add-sancion:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-add-sancion svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
+}
+
+/* Lista de sanciones */
+.sanciones-list {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sancion-card {
+  background: var(--bg-dark);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.sancion-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sancion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.sancion-tipo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-sancion {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-amonestacion {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-suspension {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-degradacion {
+  background: #fce7f3;
+  color: #831843;
+}
+
+.badge-expulsion {
+  background: #1f2937;
+  color: #f87171;
+}
+
+.sancion-dias {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.sancion-dias svg {
+  width: 14px;
+  height: 14px;
+}
+
+.sancion-fecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sancion-fecha svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sancion-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sancion-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.sancion-field p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.sancion-oficial {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary) !important;
+  font-weight: 600;
+}
+
+.sancion-oficial svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sancion-notas {
+  padding: 12px;
+  background: var(--bg-card);
+  border-left: 3px solid var(--primary);
+  border-radius: 6px;
+  font-style: italic;
+}
+
+.btn-delete-sancion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 2px solid #dc2626;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete-sancion:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-delete-sancion svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
+/* Estado vacío */
+.empty-sanciones {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.empty-sanciones svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  color: #10b981;
+  opacity: 0.5;
+}
+
+.empty-sanciones p {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.empty-sanciones span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Formulario de sanción */
+.form-add-sancion {
+  padding: 24px;
+  background: var(--bg-dark);
+  border-top: 2px solid var(--border);
+}
+
+.form-sancion-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+}
+
+.form-sancion-header svg {
+  width: 24px;
+  height: 24px;
+  color: #dc2626;
+  stroke-width: 2.5;
+}
+
+.form-sancion-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.form-sancion-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.btn-submit-sancion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.btn-submit-sancion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+.btn-submit-sancion svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-header-sanciones {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .btn-add-sancion {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sancion-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .form-sancion-grid {
+    grid-template-columns: 1fr;
+  }
+}

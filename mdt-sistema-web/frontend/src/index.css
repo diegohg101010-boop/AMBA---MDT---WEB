@@ -1,0 +1,335 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colores Argentinos - Tema Nacional */
+  --celeste: #74ACDF;
+  --celeste-dark: #5899CC;
+  --celeste-light: #A8D4F7;
+  --white: #FFFFFF;
+  --gold: #F6B000;
+  --gold-dark: #D4A000;
+  --text-dark: #1a1a1a;
+  --text-gray: #4a4a4a;
+  
+  /* Fondos y transparencias para glassmorphism */
+  --bg-glass: rgba(255, 255, 255, 0.1);
+  --bg-glass-strong: rgba(255, 255, 255, 0.15);
+  --border-glass: rgba(255, 255, 255, 0.2);
+  
+  /* Estados */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  
+  /* Sombras con tema argentino */
+  --shadow-sm: 0 1px 2px 0 rgba(116, 172, 223, 0.1);
+  --shadow: 0 4px 6px -1px rgba(116, 172, 223, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(116, 172, 223, 0.2);
+  --shadow-gold: 0 0 20px rgba(246, 176, 0, 0.3);
+}
+
+body {
+  font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--celeste) 0%, var(--white) 50%, var(--celeste-light) 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Marca de agua del escudo argentino */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23F6B000' stroke-width='0.5' opacity='0.1'/%3E%3Cpath d='M50 15 L55 35 L75 35 L60 45 L65 65 L50 55 L35 65 L40 45 L25 35 L45 35 Z' fill='%23F6B000' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar personalizado con tema argentino */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--celeste);
+  border-radius: 4px;
+  border: 1px solid var(--gold);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--celeste-dark);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+/* Utilidades */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos de tarjetas con glassmorphism */
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  transition: all 300ms ease;
+}
+
+.card:hover {
+  border-color: var(--gold-dark);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+/* Contenedores con bordes redondeados */
+.container-rounded {
+  border-radius: 16px;
+  border: 2px solid var(--gold);
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* Gradientes para encabezados */
+.header-gradient {
+  background: linear-gradient(135deg, var(--celeste) 0%, var(--white) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  color: var(--text-dark);
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--bg-glass-strong);
+  border-color: var(--gold-dark);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98) translateY(-1px);
+  transition: transform 100ms ease;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--text-gray);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.6);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-dark);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger) 0%, #b91c1c 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-danger:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.6);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--success) 0%, #15803d 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-success:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.6);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  background-color: rgba(30, 58, 138, 0.08);
+  transform: translateY(-1px);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Estilos para select */
+select.input,
+.input select {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+  cursor: pointer;
+}
+
+select.input option,
+.input select option {
+  color: var(--text-primary);
+  background: var(--bg-dark);
+  padding: 8px;
+}
+
+/* Textarea */
+textarea.input {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.badge-danger {
+  background: rgba(220, 38, 38, 0.2);
+  color: #f87171;
+}
+
+.badge-info {
+  background: rgba(14, 165, 233, 0.2);
+  color: #38bdf8;
+}
+
+/* Animaciones básicas - Ver animations.css para sistema completo */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading spinner mejorado */
+.spinner {
+  border: 3px solid var(--border);
+  border-top: 3px solid var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

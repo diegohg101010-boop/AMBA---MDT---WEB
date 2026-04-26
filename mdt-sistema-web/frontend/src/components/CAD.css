@@ -1,0 +1,317 @@
+/* CAD.css - Sistema de Despacho Policial Profesional */
+.cad-container {
+    padding: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    background: #0a0e27;
+    min-height: 100vh;
+}
+
+.cad-header {
+    background: linear-gradient(180deg, #1a1f3a 0%, #0f1729 100%);
+    padding: 25px 30px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    border-left: 4px solid #dc3545;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.cad-header-content h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+}
+
+.cad-stats {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.05);
+    padding: 10px 20px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-item.selected {
+    background: rgba(220, 53, 69, 0.15);
+    border-color: #dc3545;
+}
+
+.stat-value {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+}
+
+.stat-label {
+    display: block;
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 3px;
+}
+
+.cad-actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.cad-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.cad-filters button {
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.2s;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.cad-filters button:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    color: #ffffff;
+}
+
+.cad-filters button.active {
+    background: #dc3545;
+    color: #ffffff;
+    border-color: #dc3545;
+}
+
+.btn-eliminar-multiple {
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-eliminar-multiple:hover {
+    background: #c82333;
+}
+
+.cad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.cad-card {
+    background: #1a1f3a;
+    border-radius: 4px;
+    padding: 20px;
+    border-left: 4px solid;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.2s;
+    position: relative;
+}
+
+.cad-card:hover {
+    background: #1f2442;
+    border-top-color: rgba(255,255,255,0.15);
+}
+
+.cad-card.selected {
+    background: rgba(220, 53, 69, 0.1);
+    border-left-width: 6px;
+}
+
+.cad-card-checkbox {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.cad-card-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #dc3545;
+}
+
+.cad-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.cad-call-id {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+    background: rgba(0,0,0,0.3);
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cad-badge {
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.badge-warning {
+    background: #ffc107;
+    color: #000;
+}
+
+.badge-info {
+    background: #17a2b8;
+    color: #fff;
+}
+
+.badge-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.badge-success {
+    background: #28a745;
+    color: #fff;
+}
+
+.cad-card-body {
+    margin-bottom: 15px;
+}
+
+.cad-info-row {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.cad-info-row strong {
+    display: block;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.cad-info-row span,
+.cad-description {
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.cad-description {
+    margin: 0;
+}
+
+.cad-card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.cad-card-actions button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Courier New', monospace;
+}
+
+.btn-asignar {
+    background: #28a745;
+    color: white;
+}
+
+.btn-asignar:hover {
+    background: #218838;
+}
+
+.btn-cerrar {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-cerrar:hover {
+    background: #c82333;
+}
+
+.cad-loading,
+.cad-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    background: #1a1f3a;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+    .cad-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cad-actions-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .cad-filters {
+        width: 100%;
+    }
+    
+    .cad-filters button {
+        flex: 1;
+    }
+}

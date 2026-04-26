@@ -1,0 +1,522 @@
+/* Modal Expediente - Diseño Profesional Gubernamental */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: #0f1419;
+  border-radius: 0;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: auto;
+  border: 2px solid #1e3a5f;
+  box-shadow: 0 0 40px rgba(30, 58, 95, 0.4), 0 0 80px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+/* Header del Expediente - Estilo Gubernamental */
+.modal-header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f1419 100%);
+  border-bottom: 3px solid #2563eb;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #dc2626 0%, 
+    #ffffff 25%, 
+    #ffffff 50%, 
+    #ffffff 75%, 
+    #2563eb 100%
+  );
+}
+
+.modal-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="rgba(37,99,235,0.1)" stroke="rgba(37,99,235,0.2)" stroke-width="1"/></svg>') center/80px no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.expediente-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.expediente-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expediente-title h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.expediente-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.btn-close {
+  width: 44px;
+  height: 44px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 2px solid #dc2626;
+  border-radius: 4px;
+  color: #dc2626;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.btn-close:hover {
+  background: #dc2626;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+/* Body del Expediente */
+.modal-body {
+  padding: 32px;
+  background: #0a0e13;
+}
+
+.ciudadano-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Secciones de Información - Estilo Profesional */
+.info-section {
+  background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+  padding: 24px;
+  border-radius: 0;
+  border: 1px solid #1e3a5f;
+  border-left: 4px solid #2563eb;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.03) 100%);
+  pointer-events: none;
+}
+
+.info-section h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #1e3a5f;
+}
+
+.info-section h3 .icon-wrapper {
+  width: 20px;
+  height: 20px;
+  color: #2563eb;
+}
+
+/* Grid de Información */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(30, 58, 95, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(30, 58, 95, 0.3);
+}
+
+.info-item label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.info-item span {
+  font-size: 15px;
+  color: #e2e8f0;
+  font-weight: 500;
+  font-family: 'Courier New', monospace;
+}
+
+/* Badges Profesionales */
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-success {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+.badge-info {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.badge-primary {
+  background: rgba(37, 99, 235, 0.15);
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Lista de Items - Estilo Profesional */
+.list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(30, 58, 95, 0.15);
+  border-radius: 4px;
+  border: 1px solid rgba(30, 58, 95, 0.4);
+  border-left: 3px solid #2563eb;
+  gap: 16px;
+  transition: all 0.2s;
+}
+
+.list-item:hover {
+  background: rgba(30, 58, 95, 0.25);
+  border-left-color: #3b82f6;
+  transform: translateX(4px);
+}
+
+.list-item > div:first-child {
+  flex: 1;
+}
+
+.list-item strong {
+  color: #ffffff;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.list-item span {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.list-item .btn-danger {
+  flex-shrink: 0;
+}
+
+/* Alertas Especiales */
+.alert-danger {
+  background: linear-gradient(135deg, rgba(127, 29, 29, 0.3) 0%, rgba(220, 38, 38, 0.1) 100%);
+  border-color: #dc2626;
+  border-left-color: #dc2626;
+  border-left-width: 4px;
+  animation: pulse-alert 2s ease-in-out infinite;
+}
+
+@keyframes pulse-alert {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(220, 38, 38, 0.2);
+  }
+}
+
+.alert-danger h3 {
+  color: #fca5a5;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.3) 0%, rgba(37, 99, 235, 0.1) 100%);
+  border-color: #2563eb;
+  border-left-color: #2563eb;
+  border-left-width: 4px;
+}
+
+.alert-info h3 {
+  color: #93c5fd;
+}
+
+/* Estado Checkboxes - Estilo Profesional */
+.estado-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 14px 16px;
+  background: rgba(30, 58, 95, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(30, 58, 95, 0.3);
+  transition: all 0.2s;
+}
+
+.checkbox-label:hover {
+  background: rgba(30, 58, 95, 0.2);
+  border-color: #2563eb;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #2563eb;
+}
+
+.checkbox-label span {
+  font-size: 14px;
+  color: #e2e8f0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.motivo-input-container {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 16px;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 4px;
+  border: 1px solid #2563eb;
+}
+
+.motivo-input-container label {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.motivo-textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  font-family: 'Courier New', monospace;
+  background: rgba(15, 20, 25, 0.8);
+  border: 1px solid rgba(30, 58, 95, 0.5);
+  color: #e2e8f0;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.motivo-textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Imagen DNI - Estilo Profesional */
+.dni-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: #000000;
+  border-radius: 0;
+  border: 2px solid #1e3a5f;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.dni-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  border: 1px solid #1e3a5f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.dni-not-found {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.dni-not-found p {
+  font-size: 14px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Animaciones */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    max-height: 95vh;
+    border-radius: 0;
+  }
+  
+  .expediente-header-content {
+    padding: 20px;
+  }
+  
+  .expediente-title h2 {
+    font-size: 20px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-section {
+    padding: 16px;
+  }
+}
+
+/* Scrollbar Personalizado */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #0a0e13;
+  border-left: 1px solid #1e3a5f;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  border-radius: 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}

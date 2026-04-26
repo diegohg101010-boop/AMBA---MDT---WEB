@@ -1,0 +1,44 @@
+/* Multas.css */
+
+.multa-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.monto-cell {
+  font-weight: 700;
+  color: var(--success);
+}
+
+.monto-highlight {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.motivo-cell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.description-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.notes-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: var(--bg-darker);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}

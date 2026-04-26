@@ -1,0 +1,606 @@
+/* ============================================
+   SISTEMA DE REPORTES - DISEÑO PROFESIONAL
+   ============================================ */
+
+/* Vista Inicial */
+.reportes-inicio {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reportes-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.hero-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.reportes-hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+}
+
+.reportes-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.btn-crear-reporte {
+  padding: 1.25rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: white;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-crear-reporte:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reportes-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.info-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.info-box h3 {
+  margin: 0 0 1rem 0;
+  color: #1e3a8a;
+  font-size: 1.3rem;
+}
+
+.info-box p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.info-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-box ul li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #374151;
+}
+
+.info-box ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+/* Formulario de Reporte */
+.formulario-reporte {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.formulario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+}
+
+.formulario-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.btn-cancelar {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.reporte-form {
+  padding: 2rem;
+}
+
+.form-seccion {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  border-left: 4px solid #3b82f6;
+  border: 1px solid var(--border);
+}
+
+.form-seccion h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.form-group small {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.input {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+textarea.input {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-with-button .input {
+  flex: 1;
+}
+
+.btn-generar-numero {
+  padding: 0.875rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-generar-numero:hover {
+  background: #2563eb;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+  border-color: #3b82f6;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-label span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.btn-primario {
+  padding: 1rem 2.5rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primario:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  padding: 1rem 2rem;
+  background: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* Reporte Generado */
+.reporte-generado {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reporte-acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acciones-derecha {
+  display: flex;
+  gap: 1rem;
+}
+
+.reporte-documento {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e5e7eb;
+}
+
+.reporte-encabezado {
+  text-align: center;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid #1e3a8a;
+  margin-bottom: 2rem;
+}
+
+.logo-departamento {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.encabezado-texto h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1e3a8a;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.encabezado-texto p {
+  margin: 0.5rem 0;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.numero-reporte {
+  font-size: 1.2rem;
+  color: #1e3a8a !important;
+  font-weight: 700 !important;
+  margin-top: 1rem !important;
+}
+
+.reporte-seccion-doc {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.reporte-seccion-doc h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: #1e3a8a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reporte-tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reporte-fila {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 6px;
+}
+
+.reporte-label {
+  font-weight: 700;
+  color: #374151;
+}
+
+.reporte-valor {
+  color: #1f2937;
+}
+
+.reporte-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.prioridad-baja {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.prioridad-media {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.prioridad-alta {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.prioridad-critica {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.reporte-texto {
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.reporte-texto-largo {
+  color: #374151;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  text-align: justify;
+}
+
+.reporte-alerta {
+  padding: 1.5rem;
+  background: #fef3c7;
+  border: 2px solid #fbbf24;
+  border-radius: 8px;
+  color: #92400e;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.reporte-pie {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 3px solid #1e3a8a;
+}
+
+.firma-seccion {
+  margin-bottom: 2rem;
+}
+
+.firma-linea {
+  width: 300px;
+  height: 2px;
+  background: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.firma-texto {
+  color: #374151;
+  line-height: 1.6;
+}
+
+.reporte-metadata {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.reporte-metadata p {
+  margin: 0.5rem 0;
+}
+
+.reporte-confidencial {
+  font-weight: 700;
+  color: #dc2626 !important;
+  margin-top: 1rem !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reportes-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .reportes-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .reportes-hero h1 {
+    font-size: 2rem;
+  }
+
+  .btn-crear-reporte {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .formulario-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .reporte-documento {
+    padding: 1.5rem;
+  }
+
+  .reporte-fila {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .reporte-acciones {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .acciones-derecha {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-primario,
+  .btn-secundario {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .reportes-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-icon {
+    font-size: 3rem;
+  }
+
+  .encabezado-texto h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo-departamento {
+    font-size: 3rem;
+  }
+}
+
+/* Estilos para impresión */
+@media print {
+  .reporte-acciones {
+    display: none !important;
+  }
+
+  .reporte-documento {
+    box-shadow: none;
+    border: none;
+  }
+
+  .page-container {
+    padding: 0;
+  }
+
+  .reporte-seccion-doc {
+    page-break-inside: avoid;
+  }
+}

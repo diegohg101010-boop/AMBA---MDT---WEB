@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Admin - [ARM] MDT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ffeaa7;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Crear Usuario Admin</h1>
+        <p class="subtitle">🇦🇷 Sistema MDT - [ARM] Área Metropolitana Reborn</p>
+        
+        <div class="warning">
+            ⚠️ <strong>Importante:</strong> Este formulario solo funciona una vez. Después de crear el primer admin, se deshabilitará automáticamente.
+        </div>
+
+        <div class="info">
+            📝 La contraseña debe tener al menos 8 caracteres
+        </div>
+
+        <form id="adminForm">
+            <div class="form-group">
+                <label for="username">Nombre de Usuario</label>
+                <input type="text" id="username" name="username" required placeholder="admin">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar Contraseña</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repite la contraseña">
+            </div>
+
+            <button type="submit" id="submitBtn">Crear Administrador</button>
+        </form>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        const API_URL = 'https://mdt-arm.onrender.com';
+        const SECRET_KEY = 'ARM_SETUP_2026_RENACIMIENTO';
+
+        const form = document.getElementById('adminForm');
+        const messageDiv = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Verificar si ya existe un admin al cargar
+        checkAdmin();
+
+        async function checkAdmin() {
+            try {
+                const response = await fetch(`${API_URL}/api/setup/check-admin`);
+                const data = await response.json();
+                
+                if (data.hasAdmin) {
+                    showMessage('Ya existe un usuario administrador. Este formulario está deshabilitado.', 'error');
+                    submitBtn.disabled = true;
+                    form.querySelectorAll('input').forEach(input => input.disabled = true);
+                }
+            } catch (error) {
+                console.error('Error al verificar admin:', error);
+            }
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Validaciones
+            if (password !== confirmPassword) {
+                showMessage('Las contraseñas no coinciden', 'error');
+                return;
+            }
+
+            if (password.length < 8) {
+                showMessage('La contraseña debe tener al menos 8 caracteres', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creando...';
+
+            try {
+                const response = await fetch(`${API_URL}/api/setup/create-admin`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password,
+                        secretKey: SECRET_KEY
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage(`✅ Usuario creado exitosamente!\n\nUsuario: ${username}\nRol: Admin\n\nYa puedes iniciar sesión en el sistema MDT.`, 'success');
+                    form.reset();
+                    form.querySelectorAll('input').forEach(input => input.disabled = true);
+                } else {
+                    showMessage(`❌ Error: ${data.message}`, 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Crear Administrador';
+                }
+            } catch (error) {
+                showMessage(`❌ Error de conexión: ${error.message}`, 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Crear Administrador';
+            }
+        });
+
+        function showMessage(text, type) {
+            messageDiv.textContent = text;
+            messageDiv.className = `message ${type}`;
+            messageDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
