@@ -3,6 +3,9 @@ set -e
 
 echo "🔨 Iniciando build para Render..."
 
+# Navegar a la carpeta del proyecto
+cd mdt-sistema-web
+
 # Compilar frontend
 echo "📦 Compilando frontend..."
 cd frontend

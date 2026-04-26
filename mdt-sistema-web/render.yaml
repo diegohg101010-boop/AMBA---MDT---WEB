@@ -5,8 +5,9 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: bash build.sh
-    startCommand: cd backend && npm start
+    rootDir: mdt-sistema-web
+    buildCommand: bash mdt-sistema-web/build.sh
+    startCommand: cd mdt-sistema-web/backend && npm start
     envVars:
       - key: PORT
         value: 10000
