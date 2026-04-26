@@ -1,0 +1,28 @@
+services:
+  # Backend API
+  - type: web
+    name: mdt-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: cd mdt-sistema-web/backend && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: BOT_API_URL
+        value: http://179.41.11.247:7043
+      - key: BOT_API_KEY
+        value: HSRP_API_KEY_2026_CAMBIAR_EN_PRODUCCION_12345
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /tmp/mdt-local.db
+      - key: CORS_ORIGIN
+        value: https://mdt-backend.onrender.com
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
