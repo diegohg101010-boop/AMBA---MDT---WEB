@@ -6,7 +6,7 @@ echo "🔨 Iniciando build para Render..."
 # Compilar frontend
 echo "📦 Compilando frontend..."
 cd mdt-sistema-web/frontend
-npm ci --prefer-offline --no-audit
+npm install --legacy-peer-deps
 npm run build
 cd ../..
 
@@ -17,7 +17,7 @@ ls -la mdt-sistema-web/frontend/dist/ | head -10
 # Instalar dependencias del backend
 echo "📦 Instalando dependencias del backend..."
 cd mdt-sistema-web/backend
-npm ci --prefer-offline --no-audit
+npm install --legacy-peer-deps
 cd ../..
 
 echo "✅ Build completado correctamente"
