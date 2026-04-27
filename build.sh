@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# Force redeploy - v2
 echo "🔨 Iniciando build para Render..."
 
 # IMPORTANTE: Forzar NODE_ENV=development para que npm instale devDependencies
