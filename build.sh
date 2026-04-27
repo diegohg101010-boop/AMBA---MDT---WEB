@@ -3,10 +3,13 @@ set -e
 
 echo "🔨 Iniciando build para Render..."
 
+# IMPORTANTE: Forzar NODE_ENV=development para que npm instale devDependencies
+export NODE_ENV=development
+
 # Compilar frontend
 echo "📦 Compilando frontend..."
 cd mdt-sistema-web/frontend
-npm ci
+npm ci --include=dev
 npm run build
 echo "✓ Frontend compilado exitosamente"
 cd ../..
@@ -14,7 +17,7 @@ cd ../..
 # Instalar dependencias del backend
 echo "📦 Instalando dependencias del backend..."
 cd mdt-sistema-web/backend
-npm ci
+npm ci --include=dev
 cd ../..
 
 echo "✅ Build completado correctamente"
