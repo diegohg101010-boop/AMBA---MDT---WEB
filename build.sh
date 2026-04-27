@@ -3,15 +3,10 @@ set -e
 
 echo "🔨 Iniciando build para Render..."
 
-# Limpiar caché global de npm
-npm cache clean --force 2>/dev/null || true
-rm -rf ~/.npm 2>/dev/null || true
-
 # Compilar frontend
 echo "📦 Compilando frontend..."
 cd mdt-sistema-web/frontend
-rm -rf node_modules package-lock.json 2>/dev/null || true
-npm install
+npm ci
 npm run build
 echo "✓ Frontend compilado exitosamente"
 cd ../..
@@ -19,8 +14,7 @@ cd ../..
 # Instalar dependencias del backend
 echo "📦 Instalando dependencias del backend..."
 cd mdt-sistema-web/backend
-rm -rf node_modules package-lock.json 2>/dev/null || true
-npm install
+npm ci
 cd ../..
 
 echo "✅ Build completado correctamente"
