@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 function getBotConfig() {
-    const BOT_API_URL = process.env.BOT_API_URL || 'http://localhost:7043';
-    const BOT_API_KEY = process.env.BOT_API_KEY || 'HSRP_API_KEY_2026_CAMBIAR_EN_PRODUCCION_12345';
+    const BOT_API_URL = process.env.BOT_API_URL || 'http://localhost:7843';
+    const BOT_API_KEY = process.env.BOT_API_KEY || 'ARM_API_KEY_2026_CAMBIAR_EN_PRODUCCION_RENACIMIENTO';
 
     return { BOT_API_URL, BOT_API_KEY };
 }

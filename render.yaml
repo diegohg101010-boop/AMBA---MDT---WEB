@@ -27,9 +27,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: BOT_API_URL
-        value: http://179.41.11.247:7043
+        value: http://179.41.11.247:7843
       - key: BOT_API_KEY
-        value: HSRP_API_KEY_2026_CAMBIAR_EN_PRODUCCION_12345
+        value: ARM_API_KEY_2026_CAMBIAR_EN_PRODUCCION_RENACIMIENTO
       - key: JWT_SECRET
         generateValue: true
       - key: DATABASE_PATH
