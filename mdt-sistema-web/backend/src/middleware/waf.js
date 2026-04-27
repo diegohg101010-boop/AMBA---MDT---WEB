@@ -131,6 +131,11 @@ export function wafProtection(req, res, next) {
         return next();
     }
     
+    // Permitir health checks de Render (Go-http-client en root path)
+    if ((userAgent.includes('Go-http-client') || userAgent.includes('go-http-client')) && path === '/') {
+        return next();
+    }
+    
     // Ignorar IPs privadas (10.x.x.x, 192.168.x.x, 172.16-31.x.x)
     if (ip?.startsWith('10.') || ip?.startsWith('192.168.') || ip?.startsWith('172.')) {
         return next();

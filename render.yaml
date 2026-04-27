@@ -1,4 +1,18 @@
 services:
+  # Frontend (Static Files)
+  - type: web
+    name: mdt-frontend
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: npm install --legacy-peer-deps --include=dev && npm run build
+    publishDirectory: mdt-sistema-web/frontend/dist
+    startCommand: echo "Frontend deployed"
+    routes:
+      - path: /
+        destination: /index.html
+    envVars: []
+  
   # Backend API
   - type: web
     name: mdt-backend
@@ -21,7 +35,7 @@ services:
       - key: DATABASE_PATH
         value: /tmp/mdt-local.db
       - key: CORS_ORIGIN
-        value: https://mdt-backend.onrender.com
+        value: https://mdt-frontend.onrender.com,https://mdt-backend.onrender.com
       - key: RATE_LIMIT_WINDOW_MS
         value: 900000
       - key: RATE_LIMIT_MAX_REQUESTS
