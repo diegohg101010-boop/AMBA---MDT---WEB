@@ -1,17 +1,21 @@
 services:
-  # Frontend (Static Files)
+  # Frontend (Node.js para servir archivos estáticos y variables de entorno)
   - type: web
     name: mdt-frontend
-    env: static
+    env: node
     region: oregon
     plan: free
-    buildCommand: npm install --legacy-peer-deps --include=dev && npm run build
-    publishDirectory: mdt-sistema-web/frontend/dist
-    startCommand: echo "Frontend deployed"
-    routes:
-      - path: /
-        destination: /index.html
-    envVars: []
+    buildCommand: cd mdt-sistema-web/frontend && npm install --legacy-peer-deps --include=dev && npm run build
+    startCommand: cd mdt-sistema-web/frontend && npx http-server dist -p 3000 -c-1
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: VITE_API_URL
+        value: https://backend-ghe2.onrender.com
+      - key: VITE_BOT_API_URL
+        value: http://179.41.11.247:7843
+      - key: VITE_BOT_API_KEY
+        value: ARM_API_KEY_2026_CAMBIAR_EN_PRODUCCION_RENACIMIENTO
   
   # Backend API
   - type: web
@@ -35,7 +39,7 @@ services:
       - key: DATABASE_PATH
         value: /tmp/mdt-local.db
       - key: CORS_ORIGIN
-        value: https://mdt-frontend.onrender.com,https://mdt-backend.onrender.com
+        value: https://amba-mdt-web-1.onrender.com,https://backend-ghe2.onrender.com
       - key: RATE_LIMIT_WINDOW_MS
         value: 900000
       - key: RATE_LIMIT_MAX_REQUESTS

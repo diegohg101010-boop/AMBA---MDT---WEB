@@ -1,8 +1,10 @@
 // Configuración de la API
-const API_URL = import.meta.env.VITE_API_URL || 'https://mdt-hsrp.onrender.com';
-const API_KEY = import.meta.env.VITE_API_KEY || 'HSRP_API_KEY_2026_CAMBIAR_EN_PRODUCCION_12345';
+// Leer desde variables de entorno Vite, con fallback a localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:10000';
+const API_KEY = import.meta.env.VITE_API_KEY || 'ARM_API_KEY_2026_CAMBIAR_EN_PRODUCCION_RENACIMIENTO';
 
 console.log('[API Config] URL:', API_URL);
+console.log('[API Config] Environment:', import.meta.env.MODE);
 
 export { API_URL };
 
